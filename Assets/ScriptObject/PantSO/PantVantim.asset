@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 561891d3e85c0b54bb1e10db04c7427f, type: 3}
+  m_Name: PantVantim
+  m_EditorClassIdentifier: 
+  imgSprite: {fileID: 21300000, guid: 434279b78729e3647a74d42fdb96dedb, type: 3}
+  material: {fileID: 2100000, guid: cbd2ca91b2c1f034988d7f0cf5744eaa, type: 2}
+  Price: 0
+  Unlock: 0

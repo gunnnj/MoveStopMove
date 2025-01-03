@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ee5c645753614195cc2099bd3d00a, type: 3}
+  m_Name: BOOMERANG
+  m_EditorClassIdentifier: 
+  Name: BOOMERANG
+  prefabWp: {fileID: 2942064985004688935, guid: 25c16692545abf1479b8de63b38e31e2, type: 3}
+  prefavWpFire: {fileID: 0}
+  listSkin:
+  - {fileID: 11400000, guid: f79e5dcb386e57c42a22412e79acba76, type: 2}
+  - {fileID: 11400000, guid: 7cd217db2b8ff1a42a7332eba9dfc36e, type: 2}
+  - {fileID: 11400000, guid: e8ceaa3f864d9f1488fbab7277d4e13e, type: 2}
+  - {fileID: 11400000, guid: af5abd75b864ae340a381fcb265b8acb, type: 2}
+  - {fileID: 11400000, guid: e3910f0703872ba47a69b6751cdc12a3, type: 2}
+  priceWp: 100
+  currentSkin: 0
+  wasBoughtWp: 1

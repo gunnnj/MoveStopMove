@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e2d0eaff0aac4c47bd7ff8621223df4, type: 3}
+  m_Name: ListPantSO
+  m_EditorClassIdentifier: 
+  listPant:
+  - {fileID: 11400000, guid: 96c65ed3d1833e84a89fa2920106c17d, type: 2}
+  - {fileID: 11400000, guid: 8e9b3b2dfd34519459858dd8e8dbab25, type: 2}
+  - {fileID: 11400000, guid: e480aeb568a13f94da3a871cd0627a02, type: 2}
+  - {fileID: 11400000, guid: 1d2d8f11005c1db45a0872f52391bfe5, type: 2}
+  - {fileID: 11400000, guid: 298de96ecf3243c4faa7e67be777702d, type: 2}
+  - {fileID: 11400000, guid: c6d6bc74971f8d34e846846f5f0889f1, type: 2}
+  - {fileID: 11400000, guid: 9a352becc06391941a1fca4ccbefe37e, type: 2}
+  - {fileID: 11400000, guid: f849399583038cc48861ed3e78ba263e, type: 2}
+  - {fileID: 11400000, guid: 060c49e0e14290f47babb86e5c0aa3ce, type: 2}
+  indexPant: 0
