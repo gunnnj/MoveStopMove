@@ -2,17 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveBase : MonoBehaviour
+public abstract class MoveBase : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] protected float moveSpeed; 
+    protected Animator animator;
+    protected float rotationSpeed = 10f;
+    public bool canMove = true; 
+    public abstract void Move();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

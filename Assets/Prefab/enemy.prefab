@@ -1225,10 +1225,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6489c68a791c794ea86a0c5c60b3313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minDistance: 10
+  moveSpeed: 3
+  minDistance: 5
   maxDistance: 15
   isStop: 0
-  moveSpeed: 3
 --- !u!114 &8197909155785095689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,14 +1241,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854b50a8b12e9ae488308bc7c0dbade7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  move: {fileID: 0}
-  enemyTarget: {fileID: 3647067350693710194}
   weapon: {fileID: 8673529409380417440}
   weaponFire: {fileID: 6106085572169252406, guid: af355f82af942d74e953d4eb8b1b3989, type: 3}
-  rangeAttack: 5
+  flightSpeed: 5
+  hiddenTime: 0.35
+  destroyTime: 0.7
+  resetAttackTime: 1.25
   pointInstance: {fileID: 5909433673501464630}
   hasScore: {fileID: 2225701447727997929}
   dead: {fileID: 6894276969006918519}
+  move: {fileID: 2824043652912172496}
+  enemyTarget: {fileID: 3647067350693710194}
 --- !u!54 &8378323920531612194
 Rigidbody:
   m_ObjectHideFlags: 0

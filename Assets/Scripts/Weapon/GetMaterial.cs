@@ -12,34 +12,7 @@ public class GetMaterial : MonoBehaviour
     void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
-        GetSkin();
-
-        // for(int i=0; i<imgSOs.Count(); i++){
-
-        //     if(imgSOs[i].isChoose){
-                
-        //         int materialCount = imgSOs[i].materials.Length;
-
-        //         Material[] newMaterials = new Material[materialCount];
-
-        //         for (int j = 0; j < materialCount; j++)
-        //         {
-        //             if (j < meshRenderer.materials.Length)
-        //             {
-        //                 // Gán mỗi material từ ImgSO vào mảng mới, tạo bản sao
-        //                 newMaterials[j] = new Material(imgSOs[i].materials[j]); // Tạo bản sao của material
-        //             }
-        //             else
-        //             {
-        //                 Debug.Log("Không đủ materials trong imgSO để gán cho MeshRenderer!");
-        //             }
-        //         }
-
-        //         // Cập nhật materials của MeshRenderer
-        //         meshRenderer.materials = newMaterials;
-        //     }
-        // }
-        
+        GetSkin();        
     }
     //Lấy chỉ số skin
     public void GetSkin(){

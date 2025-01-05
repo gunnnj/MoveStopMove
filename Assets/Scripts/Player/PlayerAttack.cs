@@ -2,25 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerAttack : AttackBase
 {
     public bool canAttack= true;
-    private Animator animator;
-    public PlayerMove move;
-    public GameObject weapon;
-    private float timeResetAttack = .75f;
-    private float timeHiden = 0.35f;
-    private Coroutine coroutine=null;
-    public GameObject weaponFire;
-    [SerializeField] private float timeDestroy = .7f;
-
-    [SerializeField] private float speedFire = 8f;
-
+    public MoveBase move;
     [SerializeField] private GameObject target;
-    private GameObject projectile;
-    public Transform pointInstance;
-    public GameObject hasScore;
-    public Dead dead;
+    // private Animator animator;
+    // public GameObject weapon;
+    // public GameObject weaponFire;
+    // [SerializeField] private float flightSpeed = 5f;
+    // private float hiddenTime = 0.35f;
+    // [SerializeField] private float destroyTime = .7f;
+    // private float resetAttackTime = .75f;
+    // private Coroutine coroutine=null;
+    // public Transform pointInstance;
+    // public GameObject hasScore;
+    // public Dead dead;
 
 
     void Start()
@@ -40,7 +37,7 @@ public class PlayerAttack : MonoBehaviour
         }
       
     }
-    void Attack(){
+    public override void Attack(){
         move.canMove = false;
         canAttack = false;
         animator.SetBool("IsAttack",true);
@@ -48,16 +45,19 @@ public class PlayerAttack : MonoBehaviour
             coroutine = StartCoroutine(resetAttack());
             StartCoroutine(hideWeapon());
         }
-        
-        
     }
+    public override void Attack(Transform transform)
+    {
+        return;
+    }
+    //Ẩn vũ khí
     IEnumerator hideWeapon(){
-        yield return new WaitForSeconds(timeHiden);
+        yield return new WaitForSeconds(hiddenTime);
         weapon.SetActive(false);
         Instance();
     }
     IEnumerator resetAttack(){
-        yield return new WaitForSeconds(timeResetAttack);
+        yield return new WaitForSeconds(resetAttackTime);
         animator.SetBool("IsAttack",false);
         weapon.SetActive(true);
         move.canMove=true;
@@ -65,8 +65,8 @@ public class PlayerAttack : MonoBehaviour
         coroutine = null;
         weapon.SetActive(true);
     }
-
-    public void Instance()
+    // Spawn vũ khí bắn ra (projectile)
+    public override void Instance()
     {
         Vector3 direction = (target.transform.position - transform.position).normalized;
         //float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -79,10 +79,10 @@ public class PlayerAttack : MonoBehaviour
 
         if (rb != null)
         {
-            rb.velocity = direction * speedFire+new Vector3(0,-0.5f,0);
+            rb.velocity = direction * flightSpeed+new Vector3(0,-0.5f,0);
             //rb.transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle+90));
         }
-        Destroy(projectile,timeDestroy);
+        Destroy(projectile,destroyTime);
         
     }
 }

@@ -24,6 +24,6 @@ public class CameraSkin : MonoBehaviour
 
     public void OnClickCloseShopSkin(){
         camera.GetComponent<CinemachineVirtualCamera>().m_Lens.FieldOfView = FOVCam;
-        camera.GetComponent<CinemachineTransposer>().m_FollowOffset = VectorOffset;
+        camera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = VectorOffset;
     }
 }

@@ -141,8 +141,12 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9201315aff631a645a03946f02f10767, type: 2}
     - target: {fileID: 7784790702471230844, guid: d93864f3c145ae84db12440719d03e39, type: 3}
       propertyPath: m_Name
-      value: enemy1 Variant
+      value: enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 8197909155785095689, guid: d93864f3c145ae84db12440719d03e39, type: 3}
+      propertyPath: move
+      value: 
+      objectReference: {fileID: 2824043652912172496, guid: d93864f3c145ae84db12440719d03e39, type: 3}
     - target: {fileID: 8197909155785095689, guid: d93864f3c145ae84db12440719d03e39, type: 3}
       propertyPath: weapon
       value: 
@@ -151,6 +155,14 @@ PrefabInstance:
       propertyPath: weaponFire
       value: 
       objectReference: {fileID: 3461982503805013595, guid: ea4cbb821e86f0b419b2770537cbe33f, type: 3}
+    - target: {fileID: 8197909155785095689, guid: d93864f3c145ae84db12440719d03e39, type: 3}
+      propertyPath: flightSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8197909155785095689, guid: d93864f3c145ae84db12440719d03e39, type: 3}
+      propertyPath: resetAttackTime
+      value: 1.25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8673529409380417440, guid: d93864f3c145ae84db12440719d03e39, type: 3}

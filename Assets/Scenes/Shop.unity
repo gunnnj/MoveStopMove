@@ -162,7 +162,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -58.904053, y: -3.987793}
+  m_AnchoredPosition: {x: -102.2, y: -2.7}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &14389711
@@ -185,7 +185,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '100
+  m_text: '1000
 
 '
   m_isRightToLeft: 0
@@ -3528,7 +3528,7 @@ GameObject:
   - component: {fileID: 1165344952}
   - component: {fileID: 1165344951}
   m_Layer: 5
-  m_Name: bg
+  m_Name: bgGold
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3553,7 +3553,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 421.90405, y: 868.9877}
-  m_SizeDelta: {x: 296.8328, y: 112.8112}
+  m_SizeDelta: {x: 518.59, y: 112.8112}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1165344951
 MonoBehaviour:

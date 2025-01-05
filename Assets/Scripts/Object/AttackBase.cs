@@ -4,34 +4,21 @@ using UnityEngine;
 
 public abstract class AttackBase : MonoBehaviour
 {
-    public Animator animator;
-    public MoveBase move;
+    protected Animator animator;
     public GameObject weapon;
     public GameObject weaponFire;
-    public float flightSpeed;
-    public float hiddenTime = 0.35f;
-    public float destroyTime;
-    public float resetAttackTime = 0.75f;
+    [SerializeField] protected float flightSpeed;
+    [SerializeField] protected float hiddenTime = 0.35f;
+    [SerializeField] protected float destroyTime = 0.7f;
+    [SerializeField] protected float resetAttackTime = 0.75f;
+    protected GameObject projectile;
     public Coroutine coroutine;
-    public SphereCollider rangeAttack;
-
-    protected void StartAttack(){
-        if(coroutine == null){
-            coroutine = StartCoroutine(ResetAttack());
-            StartCoroutine(HiddenWeapon());
-        }
-    }
-    protected IEnumerator HiddenWeapon(){
-        yield return new WaitForSeconds(hiddenTime);
-        weapon.SetActive(false);
-        Instance();
-    }
-    protected IEnumerator ResetAttack(){
-        yield return new WaitForSeconds(resetAttackTime);
-        animator.SetBool("IsAttack",false);
-        weapon.SetActive(true);
-        coroutine = null;
-    }
+    public Transform pointInstance;
+    public GameObject hasScore;
+    public Dead dead;
+    //public SphereCollider rangeAttack;
+    public abstract void Attack();
+    public abstract void Attack(Transform transform);
     public abstract void Instance();
 
 }

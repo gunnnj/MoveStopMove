@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e06ee5c645753614195cc2099bd3d00a, type: 3}
+  m_Name: LOLLIPOP
+  m_EditorClassIdentifier: 
+  Name: LOLLIPOP
+  prefabWp: {fileID: 2762813101659037374, guid: d5b637ee74d91d14b9f4f5b378897516, type: 3}
+  prefavWpFire: {fileID: 0}
+  listSkin:
+  - {fileID: 11400000, guid: 5ba6fefb081fc1d488f21c10b2a8430f, type: 2}
+  - {fileID: 11400000, guid: 099b2b99e83c6cd4cbc5e0a35aa28ec1, type: 2}
+  - {fileID: 11400000, guid: 6983049df46420e4785db4bd21a5cdf5, type: 2}
+  - {fileID: 11400000, guid: e662cfcbb86ae8c4190d4b8721a25a7f, type: 2}
+  - {fileID: 11400000, guid: afc3c34e57b3b0645b60d9d5dcb46f47, type: 2}
+  priceWp: 150
+  currentSkin: 2
+  wasBoughtWp: 1

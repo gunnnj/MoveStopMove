@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMove : MonoBehaviour
+public class EnemyMove : MoveBase
 {
-    public float minDistance = 1f; 
-    public float maxDistance = 10f; 
-    public bool isStop = false; 
-    public float moveSpeed = 5f; 
+    [SerializeField] private float minDistance = 1f; 
+    [SerializeField] private float maxDistance = 10f; 
+    //public bool canMove = true; 
     private Vector3 targetPosition;
-    private float rotationSpeed = 10f;
-    private Animator animator;
     private float looptime = 1.5f;
     private bool redirec = true;
     void Start()
@@ -21,9 +18,9 @@ public class EnemyMove : MonoBehaviour
 
     void Update()
     {
-        if(!isStop){
-            MoveTowardsTarget();
-           
+        if(canMove){
+            Move();
+            //Điều kiện chuyển hướng của enemy
             if (Vector3.Distance(transform.position, targetPosition) < 1f || redirec)
             {
                 StartCoroutine(Redirec());
@@ -31,7 +28,7 @@ public class EnemyMove : MonoBehaviour
         }
         
     }
-
+    //Chuyển hướng mục tiêu di chuyển
     public IEnumerator Redirec(){
         transform.position = transform.position;
         redirec = false;
@@ -40,7 +37,7 @@ public class EnemyMove : MonoBehaviour
         SetRandomTargetPosition(); 
         redirec = true;
     }
-
+    //Random mục tiêu di chuyển
     void SetRandomTargetPosition()
     {
 
@@ -55,7 +52,7 @@ public class EnemyMove : MonoBehaviour
         );
     }
 
-    void MoveTowardsTarget()
+    public override void Move()
     {
         animator.SetBool("IsIdle",false);
         Vector3 direction = (targetPosition - transform.position).normalized;
@@ -65,11 +62,5 @@ public class EnemyMove : MonoBehaviour
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, rotationSpeed * Time.deltaTime);
         }
-    }
-    void OnTriggerEnter(Collider other)
-    {
-        // if(other.CompareTag("Weapon")){
-        //     Destroy(gameObject);
-        // }
     }
 }

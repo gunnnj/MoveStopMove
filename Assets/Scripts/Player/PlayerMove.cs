@@ -1,17 +1,14 @@
 using UnityEngine;
 
 
-public class PlayerMove : MonoBehaviour
+public class PlayerMove : MoveBase
 {
-    public float moveSpeed = 10f;
     public VariableJoystick joystick;
     public bool isJoyStick;
-    private Animator animator;
     public PlayerAttack attack;
-    public bool canMove = true;
-    public Vector3 move;
+    //public bool canMove = true;
+    private Vector3 move;
     public static PlayerMove player;
-    public Camera mainCamera;
     public Dead dead;
 
     void Start()
@@ -25,7 +22,7 @@ public class PlayerMove : MonoBehaviour
             Move();
         }
     }
-    void Move(){
+    public override void Move(){
 
         move = new Vector3(joystick.Direction.x,0f,joystick.Direction.y);
 
@@ -34,7 +31,7 @@ public class PlayerMove : MonoBehaviour
             animator.SetBool("IsIdle",false);
             attack.canAttack = false;
 
-            Vector3 targetDirection = Vector3.RotateTowards(transform.forward, move, 10f*Time.deltaTime, 0f);
+            Vector3 targetDirection = Vector3.RotateTowards(transform.forward, move, rotationSpeed *Time.deltaTime, 0f);
             transform.rotation = Quaternion.LookRotation(targetDirection);
 
 
