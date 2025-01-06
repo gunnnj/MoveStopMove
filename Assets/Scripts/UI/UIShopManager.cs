@@ -10,24 +10,27 @@ public class UIShopManager : MonoBehaviour
     public Button[] btnSelectShops;
     public GameObject buttonPrefab;
     public ListPantSO listPantSO;
+    public ListHatSO listHatSO;
+    public ListShieldSO listShieldSO;
+    public GameObject[] HatGO;
+    public GameObject[] ShieldGO;
     public GameObject UIShop;
     public GameObject UIBtn;
     public GameObject player;
-    public GameObject[] HatGO;
-    public Sprite[] spriteHat;
-    public GameObject[] ShieldGO;
-    public Sprite[] spriteShield;
     public int indexButton = 0;
     public ShopFullset shopFullset;
-    private List<GameObject> listBtn;
+    public Button[] listBtnSkin;
+    public List<GameObject> listBtn;
+    public static UIShopManager instance;
     void Start()
     {
+        instance = this;
         listBtn = new List<GameObject>();
-        SetItemStart();
+        //SetItemStart();
         //OnClickHat();
     }
     public void SetItemStart(){
-        if(shopFullset.fullsetSO.wasEquipped){return;}
+        if(shopFullset.listFullsetSO.wasEquipped){return;}
         int indexHat = PlayerPrefs.GetInt("IndexHatGO",-1);
         int indexShield = PlayerPrefs.GetInt("IndexShieldGO",-1);
         if(indexHat>=0){
@@ -37,73 +40,116 @@ public class UIShopManager : MonoBehaviour
             ShieldGO[indexShield].SetActive(true);
         }
     }
+    public void OnClickHat(){
 
+        indexButton = 0;
+        shopFullset.ResetMaterialAndAccessory();
+
+        int amoutHat = listHatSO.hatSOs.Count();
+
+        for(int i=0; i<listBtnSkin.Count(); i++){
+            if(i<=amoutHat){
+                listBtnSkin[i].gameObject.SetActive(true);
+                listBtnSkin[i].GetComponent<Image>().sprite = listHatSO.hatSOs[i].imgHatGO;
+                listBtnSkin[i].GetComponent<OnClickSkin>().index = i;
+
+                if(listHatSO.hatSOs[i].wasBought){
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(false);
+                }
+                else{
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+
+                
+            }
+            else{
+                listBtnSkin[i].gameObject.SetActive(false);
+            }
+        }  
+        
+    }
     public void OnClickPant(){
         indexButton = 1;
         shopFullset.ResetMaterialAndAccessory();  //Reset lại ban đầu
-        DestroyBtn(); // Reset button
-        buttonPrefab.GetComponent<Image>().sprite = listPantSO.listPant[0].imgSprite; // hiển thị ở button đầu tiên
-        int amoutSprite = listPantSO.listPant.Length;  // Lấy số lượng skin
-        //Tạo số lượng button theo số lượng skin
-        for(int i=1; i<amoutSprite;i++){
-            GameObject btnSkin = Instantiate(buttonPrefab,transform);
-            btnSkin.transform.SetParent(buttonPrefab.transform.parent);
-            btnSkin.GetComponent<Image>().sprite = listPantSO.listPant[i].imgSprite;
-            btnSkin.GetComponent<OnClickSkin>().index = i;
-            listBtn.Add(btnSkin);
+
+        int amoutPant = listPantSO.listPant.Count();
+
+        for(int i=0; i<listBtnSkin.Count(); i++){
+            if(i<amoutPant){
+                listBtnSkin[i].gameObject.SetActive(true);
+                listBtnSkin[i].GetComponent<Image>().sprite = listPantSO.listPant[i].imgSprite;
+                listBtnSkin[i].GetComponent<OnClickSkin>().index = i;
+
+                if(listPantSO.listPant[i].wasBought){
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(false);
+                }
+                else{
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+            }
+            else{
+                listBtnSkin[i].gameObject.SetActive(false);
+            }
         }
-    }
-    public void OnClickHat(){
-        indexButton = 0;
-        shopFullset.ResetMaterialAndAccessory();
-        DestroyBtn(); // Reset button
-        buttonPrefab.GetComponent<Image>().sprite = spriteHat[0]; 
-        int amoutHat = spriteHat.Count();
-        //Tạo số lượng button theo số lượng skin
-        for(int i=1; i<amoutHat; i++){
-            GameObject btnSkin = Instantiate(buttonPrefab,transform);
-            btnSkin.transform.SetParent(buttonPrefab.transform.parent);
-            btnSkin.GetComponent<Image>().sprite = spriteHat[i];
-            btnSkin.GetComponent<OnClickSkin>().index = i;
-            listBtn.Add(btnSkin);
-        }
-        
+
     }
 
     public void OnClickShield(){
         indexButton = 2;
         shopFullset.ResetMaterialAndAccessory();
-        DestroyBtn(); // Reset button
-        buttonPrefab.GetComponent<Image>().sprite = spriteShield[0]; 
-        //Tạo số lượng button theo số lượng skin
-        GameObject btnSkin = Instantiate(buttonPrefab,transform);
-        btnSkin.transform.SetParent(buttonPrefab.transform.parent);
-        btnSkin.GetComponent<Image>().sprite = spriteShield[1];
-        btnSkin.GetComponent<OnClickSkin>().index = 1;
-        listBtn.Add(btnSkin);
+
+        int amoutShield = listShieldSO.shieldSos.Count();
+
+        for(int i=0; i<listBtnSkin.Count(); i++){
+            if(i<amoutShield){
+                listBtnSkin[i].gameObject.SetActive(true);
+                listBtnSkin[i].GetComponent<Image>().sprite = listShieldSO.shieldSos[i].imgShieldSO;
+                listBtnSkin[i].GetComponent<OnClickSkin>().index = i;
+
+                if(listPantSO.listPant[i].wasBought){
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(false);
+                }
+                else{
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+            }
+            else{
+                listBtnSkin[i].gameObject.SetActive(false);
+            }
+        }
+
     }
     public void OnClickFullset(){
+
         indexButton = 3;
-        DestroyBtn();
-        int amoutFullset = shopFullset.fullsetSO.spriteFullset.Count(); // lấy số lượng full set
-        buttonPrefab.GetComponent<Image>().sprite = shopFullset.fullsetSO.spriteFullset[0];  // set hình ảnh nút đầu tiên
-        //Tạo số lượng button theo số lượng skin
-        for(int i=1; i<amoutFullset; i++){
-            GameObject btnSkin = Instantiate(buttonPrefab,transform);
-            btnSkin.transform.SetParent(buttonPrefab.transform.parent);
-            btnSkin.GetComponent<OnClickSkin>().index = i;
-            btnSkin.GetComponent<Image>().sprite = shopFullset.fullsetSO.spriteFullset[i];
-            listBtn.Add(btnSkin);
+
+        int amoutFullset = shopFullset.listFullsetSO.fullsetSOs.Count(); // lấy số lượng full set
+
+        for(int i=0; i<listBtnSkin.Count(); i++){
+            if(i<amoutFullset){
+                listBtnSkin[i].gameObject.SetActive(true);
+                listBtnSkin[i].GetComponent<Image>().sprite = shopFullset.listFullsetSO.fullsetSOs[i].imgFullset;
+                listBtnSkin[i].GetComponent<OnClickSkin>().index = i;
+
+                if(shopFullset.listFullsetSO.fullsetSOs[i].wasBought){
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(false);
+                }
+                else{
+                    listBtnSkin[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+                
+            }
+            else{
+                listBtnSkin[i].gameObject.SetActive(false);
+            }
         }
+ 
+
     }
-    public void DestroyBtn(){
-        foreach(var item in listBtn){
-            Destroy(item);
-        }
-    }
+
     //Khi ấn nút skin
     public void OnClickUISKin(){
-        if(shopFullset.fullsetSO.wasEquipped){
+        if(shopFullset.listFullsetSO.wasEquipped){
             OnClickFullset();
         }
         else{

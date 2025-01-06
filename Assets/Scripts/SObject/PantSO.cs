@@ -7,5 +7,5 @@ public class PantSO : ScriptableObject
     public Sprite imgSprite;
     public Material material;
     public int Price;
-    public bool Unlock;
+    public bool wasBought;
 }

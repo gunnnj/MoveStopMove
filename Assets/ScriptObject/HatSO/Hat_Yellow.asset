@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 561891d3e85c0b54bb1e10db04c7427f, type: 3}
-  m_Name: PantBatman
+  m_Script: {fileID: 11500000, guid: 03b0cfe27157666448cbbf55cbcd1bb2, type: 3}
+  m_Name: Hat_Yellow
   m_EditorClassIdentifier: 
-  imgSprite: {fileID: 21300000, guid: 92fbcee8dee02d448bd5888424c06d09, type: 3}
-  material: {fileID: 2100000, guid: 9b3fb6509554c9c428884641b3b894d5, type: 2}
-  Price: 230
+  imgHatGO: {fileID: 21300000, guid: 9341d792d23a65e40a300e9f4453f60b, type: 3}
   wasBought: 1
+  priceHat: 300

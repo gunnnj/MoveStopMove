@@ -1,18 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ShieldSO : MonoBehaviour
+[CreateAssetMenu(fileName ="ShieldSO",menuName ="SO/ShieldSO")]
+public class ShieldSO : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite imgShieldSO;
+    public bool wasBought;
+    public int priceShield;
 }

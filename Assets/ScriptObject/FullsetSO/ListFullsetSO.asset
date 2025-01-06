@@ -10,8 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b5022994551b0d40b91deeca62c0a1c, type: 3}
-  m_Name: FullsetSO
+  m_Name: ListFullsetSO
   m_EditorClassIdentifier: 
+  fullsetSOs:
+  - {fileID: 11400000, guid: 005587e8b126a944386f318e5299eccf, type: 2}
+  - {fileID: 11400000, guid: d077ca81ac140c44b94d295e3dfe42df, type: 2}
+  - {fileID: 11400000, guid: 2b9a0e798e542584f90100baa4561cc5, type: 2}
   materialBody:
   - {fileID: 2100000, guid: cd8cdf29d75c688459d21e8e9f48b7c6, type: 2}
   - {fileID: 2100000, guid: 193b94050bbb4bd448fb4e99274ec50f, type: 2}

@@ -6,13 +6,13 @@ public class GetMaterialPant : MonoBehaviour
 {
     public ListPantSO listPantSO;
     public SkinnedMeshRenderer pant;
-    public FullsetSO fullsetSO;
+    public ListFullsetSO listFullsetSO;
     public static GetMaterialPant instance;
 
     void Start()
     {
         instance = this;
-        if(!fullsetSO.wasEquipped){
+        if(!listFullsetSO.wasEquipped){
             GetMaterial();
         }
         

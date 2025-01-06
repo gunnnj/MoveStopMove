@@ -28,16 +28,26 @@ public class OnClickSkin : MonoBehaviour
         if(uIShop.indexButton==0){
             OnClickHat();
             btnBuy.SetActive(true);
+            btnSelect.SetActive(false);
         }
         if(uIShop.indexButton==1){
             OnClickPant();
+            btnBuy.SetActive(true);
+            btnSelect.SetActive(false);
         }
         if(uIShop.indexButton==2){
             OnClickShield();
+            btnBuy.SetActive(true);
+            btnSelect.SetActive(false);
         }
         if(uIShop.indexButton==3){
             OnClickFullset();
+            btnBuy.SetActive(true);
+            btnSelect.SetActive(false);
         }
+  
+        PlayerPrefs.SetInt("IndexSkinCategory",index);
+        PlayerPrefs.Save();
         
     }
     public void OnClickHat(){
@@ -45,35 +55,35 @@ public class OnClickSkin : MonoBehaviour
             go.SetActive(false);
         }
         uIShop.HatGO[index].SetActive(true);
-        shopFullset.fullsetSO.wasEquipped = false;
-        //Lưu chỉ số của mũ
-        PlayerPrefs.SetInt("IndexHatGO",index);
-        PlayerPrefs.Save();
+        shopFullset.listFullsetSO.wasEquipped = false;
+        txtBuy.text = UIShopManager.instance.listHatSO.hatSOs[index].priceHat+"";
+        // //Lưu chỉ số của mũ
+        // PlayerPrefs.SetInt("IndexHatGO",index);
+        // PlayerPrefs.Save();
     }
     public void OnClickPant(){
         listPantSO.indexPant = index;
         GetMaterialPant.instance.GetMaterial();
-        shopFullset.fullsetSO.wasEquipped = false;
+        shopFullset.listFullsetSO.wasEquipped = false;
+        txtBuy.text = UIShopManager.instance.listPantSO.listPant[index].Price+"";
     }
     public void OnClickShield(){
         foreach(var go in uIShop.ShieldGO){
             go.SetActive(false);
         }
         uIShop.ShieldGO[index].SetActive(true);
-        shopFullset.fullsetSO.wasEquipped = false;
-        //Lưu chỉ số của khiên
-        PlayerPrefs.SetInt("IndexShieldGO",index);
-        PlayerPrefs.Save();
+        shopFullset.listFullsetSO.wasEquipped = false;
+        txtBuy.text = UIShopManager.instance.listShieldSO.shieldSos[index].priceShield+"";
+        // //Lưu chỉ số của khiên
+        // PlayerPrefs.SetInt("IndexShieldGO",index);
+        // PlayerPrefs.Save();
     }
     public void OnClickFullset(){
         uIShop.HideHatGO();
-        shopFullset.fullsetSO.currentFullset = index;
-        shopFullset.fullsetSO.wasEquipped = true;
+        shopFullset.listFullsetSO.currentFullset = index;
+        shopFullset.listFullsetSO.wasEquipped = true;
+        txtBuy.text = UIShopManager.instance.shopFullset.listFullsetSO.fullsetSOs[index].priceFullset+"";
         //Spawn phụ kiện theo fullset
         shopFullset.SpawnAccessory();
-    }
-
-    public void HandleButtonBuyClick(){
-        Debug.Log("Bấm mua ở skin hat");
     }
 }

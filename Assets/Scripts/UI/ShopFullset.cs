@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ShopFullset : MonoBehaviour
 {
-    public FullsetSO fullsetSO;
+    public ListFullsetSO listFullsetSO;
     public Transform[] transParents;
     public GameObject body;
     public GameObject pants;
@@ -21,7 +21,7 @@ public class ShopFullset : MonoBehaviour
         listDestroy = new List<GameObject>();
         materialOriginBody = body.GetComponent<SkinnedMeshRenderer>().material;
         //Kiểm tra xem có đang trang bị fullset ko?
-        if(fullsetSO.wasEquipped){
+        if(listFullsetSO.wasEquipped){
             SpawnAccessory();
             pants.GetComponent<SkinnedMeshRenderer>().material = materialNone;
         }
@@ -29,20 +29,20 @@ public class ShopFullset : MonoBehaviour
     }
     public void SpawnAccessory(){
         ResetMaterialAndAccessory();
-        int indexFullset = fullsetSO.currentFullset;
+        int index = listFullsetSO.currentFullset;
         //Spawn phụ kiện theo loại fullset
-        GameObject Acces = Instantiate(fullsetSO.prefabAccessories[indexFullset],transParents[indexFullset].position,transParents[indexFullset].rotation);
-        Acces.transform.localScale = transParents[indexFullset].localScale;
-        Acces.transform.SetParent(transParents[indexFullset].parent);
+        GameObject Acces = Instantiate(listFullsetSO.fullsetSOs[index].fullsetGO,transParents[index].position,transParents[index].rotation);
+        Acces.transform.localScale = transParents[index].localScale;
+        Acces.transform.SetParent(transParents[index].parent);
         //Set material fullbody
-        SetMaterialFullset(indexFullset);
+        SetMaterialFullset(index);
         //Gán vào list để reset
         listDestroy.Add(Acces);
         
     }
 
     public void SetMaterialFullset(int idx){
-        body.GetComponent<SkinnedMeshRenderer>().material = fullsetSO.materialBody[idx];
+        body.GetComponent<SkinnedMeshRenderer>().material = listFullsetSO.fullsetSOs[idx].materialBody;
         pants.GetComponent<SkinnedMeshRenderer>().material = materialNone;
     }
     public void ResetMaterialAndAccessory(){

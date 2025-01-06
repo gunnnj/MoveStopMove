@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03b0cfe27157666448cbbf55cbcd1bb2, type: 3}
-  m_Name: HatSO
+  m_Name: Cowboy
   m_EditorClassIdentifier: 
-  litsHatGO:
-  - {fileID: 0}
-  listSprite: []
-  currentHat: 0
+  imgHatGO: {fileID: 21300000, guid: df2aa906efcd9434e8c35f41f30e9bbd, type: 3}
+  wasBought: 0
+  priceHat: 250
